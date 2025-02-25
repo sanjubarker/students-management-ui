@@ -17,13 +17,11 @@ const StudentTable = () => {
   const { students, loadStudents } = useContext(StudentContext);
 
   useEffect(() => {
-    loadStudents();
+    if (students.length === 0) loadStudents();
   }, []);
 
-  // Memoizing students list to prevent unnecessary re-renders
   const memoizedStudents = useMemo(() => students, [students]);
 
-  // Show loading spinner if no students are available
   if (!memoizedStudents.length) return <LoadingSpinner />;
 
   return (
@@ -34,12 +32,17 @@ const StudentTable = () => {
       <TableContainer component={Paper} sx={{ maxHeight: 400 }}>
         <Table stickyHeader>
           <TableHead>
-            <TableRow sx={{ bgcolor: "#3f51b5" }}>
+            <TableRow>
               {["Name", "Number", "Batch", "Grade", "Joining Date"].map((header) => (
                 <TableCell
                   key={header}
                   align="center"
-                  sx={{ fontWeight: "bold", borderBottom: "2px solid #fff" }}
+                  sx={{
+                    fontWeight: "bold",
+                    borderBottom: "2px solid #fff",
+                    backgroundColor: "#1f618d",
+                    color: "#fff",
+                  }}
                 >
                   {header}
                 </TableCell>
@@ -48,7 +51,7 @@ const StudentTable = () => {
           </TableHead>
           <TableBody>
             {memoizedStudents.map(({ id, name, phone_number, batch, grade, date_of_joining }) => (
-              <TableRow key={id} hover>
+              <TableRow key={id} hover sx={{ "&:hover": { backgroundColor: "#f5f5f5" } }}>
                 <TableCell align="center">{name}</TableCell>
                 <TableCell align="center">{phone_number}</TableCell>
                 <TableCell align="center">{batch}</TableCell>

@@ -31,7 +31,14 @@ const AggregatePage = () => {
   return (
     <Box sx={{ p: 3, maxWidth: "90%", mx: "auto", mt: 10 }}> 
       
-      <Typography variant="h5" fontWeight="bold" align="center" gutterBottom>
+      <Typography variant="h5" fontWeight="bold" align="center" gutterBottom  sx={{
+    backgroundColor: "#1f618d",
+    color: "#fff",  
+    display: "inline-block", 
+    px: 2,
+    py: 1, 
+    borderRadius: 1,
+  }}>
         Total Students: {data.totalStudents}
       </Typography>
 

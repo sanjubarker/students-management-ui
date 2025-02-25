@@ -12,7 +12,6 @@ import {
   } from "@mui/material";
 
 const GradeCountTable = ({ data }) => {
-
     return (
         <Grid item xs={12} md={6}>
           <Typography variant="h6" fontWeight="bold" align="center" gutterBottom>
@@ -21,11 +20,17 @@ const GradeCountTable = ({ data }) => {
           <TableContainer component={Paper} sx={{ maxHeight: 350, overflow: "auto" }}>
             <Table stickyHeader>
               <TableHead>
-                <TableRow sx={{ bgcolor: "#9c27b0" }}>
-                  <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                <TableRow>
+                  <TableCell
+                    align="center"
+                    sx={{ fontWeight: "bold", backgroundColor: "#5d6d7e", color: "#fff" }}
+                  >
                     Grade
                   </TableCell>
-                  <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                  <TableCell
+                    align="center"
+                    sx={{ fontWeight: "bold", backgroundColor: "#5d6d7e", color: "#fff" }}
+                  >
                     Count
                   </TableCell>
                 </TableRow>
@@ -41,7 +46,7 @@ const GradeCountTable = ({ data }) => {
             </Table>
           </TableContainer>
         </Grid>
-    )
-}
+    );
+};
 
 export default GradeCountTable;

@@ -9,11 +9,9 @@ import {
     Paper,
     Typography,
     Grid,
-    Box,
   } from "@mui/material";
 
-const BatchCountTable = ({ data}) => {
-
+const BatchCountTable = ({ data }) => {
     return (
         <Grid item xs={12} md={6}>
           <Typography variant="h6" fontWeight="bold" align="center" gutterBottom>
@@ -22,11 +20,17 @@ const BatchCountTable = ({ data}) => {
           <TableContainer component={Paper} sx={{ maxHeight: 350, overflow: "auto" }}>
             <Table stickyHeader>
               <TableHead>
-                <TableRow sx={{ bgcolor: "#1976d2" }}>
-                  <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                <TableRow>
+                  <TableCell
+                    align="center"
+                    sx={{ fontWeight: "bold", backgroundColor: "#5d6d7e", color: "#fff" }}
+                  >
                     Batch
                   </TableCell>
-                  <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                  <TableCell
+                    align="center"
+                    sx={{ fontWeight: "bold", backgroundColor: "#5d6d7e", color: "#fff" }}
+                  >
                     Count
                   </TableCell>
                 </TableRow>
@@ -42,7 +46,7 @@ const BatchCountTable = ({ data}) => {
             </Table>
           </TableContainer>
         </Grid>
-    )
-}
+    );
+};
 
 export default BatchCountTable;
