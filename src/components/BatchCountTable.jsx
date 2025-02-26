@@ -23,21 +23,25 @@ const BatchCountTable = ({ data }) => {
                 <TableRow>
                   <TableCell
                     align="center"
-                    sx={{ fontWeight: "bold", backgroundColor: "#5d6d7e", color: "#fff" }}
+                    sx={{ fontWeight: "bold", backgroundColor: "#37474F", color: "#fff" }}
                   >
                     Batch
                   </TableCell>
                   <TableCell
                     align="center"
-                    sx={{ fontWeight: "bold", backgroundColor: "#5d6d7e", color: "#fff" }}
+                    sx={{ fontWeight: "bold", backgroundColor: "#37474F", color: "#fff" }}
                   >
                     Count
                   </TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {Object.entries(data.batchCount).map(([batch, count]) => (
-                  <TableRow key={batch} hover>
+                {Object.entries(data.batchCount).map(([batch, count],index) => (
+                  <TableRow key={batch} hover 
+                   sx={{
+                    backgroundColor: index % 2 === 0 ? "white" : "#ECEFF1", 
+                    "&:hover": { backgroundColor: "#FFAB91" },
+                  }}>
                     <TableCell align="center">{batch}</TableCell>
                     <TableCell align="center">{count}</TableCell>
                   </TableRow>

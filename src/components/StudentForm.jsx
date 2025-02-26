@@ -20,6 +20,10 @@ const StudentForm = ({ onStudentAdded }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!student.name || !student.phone_number || !student.batch || !student.grade || !student.date_of_joining) {
+      setSnackbar({ open: true, message: 'All fields are mandatory!', severity: 'error' });
+      return; 
+    }
     try {
       await addStudent(student);
       setSnackbar({ open: true, message: 'Successfully added!', severity: 'success' });
@@ -42,9 +46,9 @@ const StudentForm = ({ onStudentAdded }) => {
   };
 
   return (
-    <Container maxWidth="sm" sx={{ mt: 10 }}>
-      <Paper elevation={3} sx={{ p: 4 }}>
-        <Typography variant="h5" align="center" gutterBottom>
+    <Container maxWidth="sm" sx={{ mt: 10}}>
+      <Paper elevation={3} sx={{ p: 4 , borderRadius: 2 , backgroundColor:"#F2F4F4"}}>
+        <Typography variant="h5" align="center" gutterBottom sx= {{fontWeight: "bold"}}>
           Student Form
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate>
@@ -103,12 +107,22 @@ const StudentForm = ({ onStudentAdded }) => {
         </Box>
       </Paper>
 
-      {/* Snackbar for success or error messages */}
-      <Snackbar open={snackbar.open} autoHideDuration={2000} onClose={() => setSnackbar({ ...snackbar, open: false })}>
-        <Alert onClose={() => setSnackbar({ ...snackbar, open: false })} severity={snackbar.severity} sx={{ width: '100%' }}>
-          {snackbar.message}
-        </Alert>
-      </Snackbar>
+      <Snackbar
+  open={snackbar.open}
+  
+  onClose={() => setSnackbar({ ...snackbar, open: false })}
+  anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+  sx={{ marginTop: '70px' }}
+>
+  <Alert
+    onClose={() => setSnackbar({ ...snackbar, open: false })}
+    severity={snackbar.severity}
+    sx={{ width: '100%' }}
+  >
+    {snackbar.message}
+  </Alert>
+</Snackbar>
+
     </Container>
   );
 };

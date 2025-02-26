@@ -23,21 +23,24 @@ const GradeCountTable = ({ data }) => {
                 <TableRow>
                   <TableCell
                     align="center"
-                    sx={{ fontWeight: "bold", backgroundColor: "#5d6d7e", color: "#fff" }}
+                    sx={{ fontWeight: "bold", backgroundColor: "#37474F", color: "#fff" }}
                   >
                     Grade
                   </TableCell>
                   <TableCell
                     align="center"
-                    sx={{ fontWeight: "bold", backgroundColor: "#5d6d7e", color: "#fff" }}
+                    sx={{ fontWeight: "bold", backgroundColor: "#37474F", color: "#fff" }}
                   >
                     Count
                   </TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {Object.entries(data.gradeCount).map(([grade, count]) => (
-                  <TableRow key={grade} hover>
+                {Object.entries(data.gradeCount).map(([grade, count],index) => (
+                  <TableRow key={grade} hover  sx={{
+                    backgroundColor: index % 2 === 0 ? "white" : "#ECEFF1", 
+                    "&:hover": { backgroundColor: "#FFAB91" },
+                  }}>
                     <TableCell align="center">{grade.toUpperCase()}</TableCell>
                     <TableCell align="center">{count}</TableCell>
                   </TableRow>
