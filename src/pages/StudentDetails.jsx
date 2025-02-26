@@ -24,7 +24,7 @@ const StudentTable = () => {
 
   const memoizedStudents = useMemo(() => students, [students]);
 
-  if (!memoizedStudents.length) return <LoadingSpinner />;
+  // if (!memoizedStudents.length) return <LoadingSpinner />;
 
   return (
     <Box sx={{ mt: 12, px: 0, width: "100%", overflowX: "auto" }}>
