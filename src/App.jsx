@@ -4,16 +4,15 @@ import { StudentProvider } from './context/StudentContext';
 import FormPage from './pages/FormPage';
 import TablePage from './pages/StudentDetails';
 import AggregatePage from './pages/AggregatePage';
-import './App.css'
+import './App.css';
 import Header from './components/Navbar';
 import Home from './pages/Home';
 
 const App = () => {
-
     return (
-        <StudentProvider>
-            <Header />
-            <Router>
+        <Router>
+            <StudentProvider>
+                <Header />
                 <Routes>
                     <Route path='/' element={<Navigate to="/home" replace />} />
                     <Route path='/home' element={<Home />} />
@@ -21,8 +20,9 @@ const App = () => {
                     <Route path='/students-list' element={<TablePage />} />
                     <Route path='/aggregate' element={<AggregatePage />} />
                 </Routes>
-            </Router>
-        </StudentProvider>
+            </StudentProvider>
+        </Router>
     );
 };
+
 export default App;
