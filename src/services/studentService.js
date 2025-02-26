@@ -17,14 +17,17 @@ export const getAggregatedData = async () => {
     if (error) throw error;
     
     const totalStudents = data.length;
+    
     const batchCount = data.reduce((acc, curr) => {
         acc[curr.batch] = (acc[curr.batch] || 0) + 1;
         return acc;
     }, {});
+
     const gradeCount = data.reduce((acc, curr) => {
-        acc[curr.grade.toUpperCase()] = (acc[curr.grade] || 0) + 1;
+        const normalizedGrade = curr.grade.toLowerCase(); // Normalize to lowercase
+        acc[normalizedGrade] = (acc[normalizedGrade] || 0) + 1;
         return acc;
     }, {});
-    
+
     return { totalStudents, batchCount, gradeCount };
 };
