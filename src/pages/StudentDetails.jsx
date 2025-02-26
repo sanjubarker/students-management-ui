@@ -27,7 +27,7 @@ const StudentTable = () => {
   if (!memoizedStudents.length) return <LoadingSpinner />;
 
   return (
-    <Box sx={{ mt: 12, px: 2, width: "100%", overflowX: "auto" }}>
+    <Box sx={{ mt: 12, px: 0, width: "100%", overflowX: "auto" }}>
       <Typography 
         variant={isSmallScreen ? "h6" : "h5"} 
         align="center" 

@@ -64,7 +64,10 @@ const Header = () => {
             </IconButton>
 
             {/* Title */}
-            <Typography variant="h6" noWrap component="div">
+            <Typography variant="h6" noWrap component="div"   sx={{
+      fontSize: { xs: "1rem", md: "1.25rem" }, 
+      textAlign: { xs: "center", md: "left" },
+    }}>
               Student Management System
             </Typography>
 
