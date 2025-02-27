@@ -13,8 +13,8 @@ Ensure you have the following installed:
 ### Clone the Repository
 
 ```sh
-git clone <repository-url>
-cd <repository-folder>
+git clone https://github.com/sanjubarker/students-management-ui.git
+cd students-management-ui
 ```
 
 ### Install Dependencies
